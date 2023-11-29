@@ -9,13 +9,13 @@ graph TD;
 sequenceDiagram
     participant BBGO
     participant ExchangeWrapper
-    participant External Exchange
+    participant External Market Data
     BBGO->>ExchangeWrapper: Backtest Request
     ExchangeWrapper->>BBGO: Backtest job ID
     BBGO->>ExchangeWrapper: Private/Public Subscription(formatted)
-    ExchangeWrapper->>External Exchange: Private/Public Subscription(transformed)
+    ExchangeWrapper->>External Market Data: Private/Public Subscription(transformed)
     loop Event passing
-        External Exchange->>ExchangeWrapper: Public/Private messages
+        External Market Data->>ExchangeWrapper: Public/Private messages
         ExchangeWrapper->>BBGO: Public/Private messages(formatted)
     end
     alt
